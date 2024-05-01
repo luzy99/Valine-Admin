@@ -10,7 +10,6 @@ const Comment = AV.Object.extend('Comment')
 // Comment 列表
 router.get('/', (req, res, next) => {
   console.log(req.currentUser)
-  console.log(req)
   if (req.currentUser) {
     const query = new AV.Query(Comment)
     query.descending('createdAt')

@@ -52,10 +52,10 @@ app.post('/login', (req, res) => {
     || req.body.username === process.env.TO_EMAIL) {
     AV.User.logIn(req.body.username, req.body.password).then((user) => {
       res.saveCurrentUser(user) // 保存当前用户到 Cookie
+      console.log(user)
       res.redirect('/comments') // 跳转到个人资料页面
     }, (error) => {
-      if (error)
-        console.error(error)
+      console.error(error)
       // 登录失败，跳转到登录页面
       res.redirect('/')
     })
