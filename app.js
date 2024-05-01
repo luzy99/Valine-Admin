@@ -49,7 +49,7 @@ app.use('/sign-up', require('./routes/sign-up'))
 // 处理登录请求（可能来自登录界面中的表单）
 app.post('/login', (req, res) => {
   if (req.body.username === process.env.SMTP_USER
-    || req.body.username === process.env.TO_EMAIL) {
+    || req.body.username === process.env.BLOGGER_EMAIL) {
     AV.User.logIn(req.body.username, req.body.password).then((user) => {
       res.saveCurrentUser(user) // 保存当前用户到 Cookie
       console.log('Login success', user.getUsername())
